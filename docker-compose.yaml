@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+    postgres:
+        image: postgres:9.6
+        restart: always
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=root
+            - POSTGRES_DB=jelliky
+        ports: 
+            - 5432:5432
+        logging:
+            options:
+                max-size: 10m
+                max-file: "3"
+    pgadmin:
+        image: dpage/pgadmin4
+        environment: 
+            - PGADMIN_DEFAULT_EMAIL=vettiebinyjar1312@gmail.com
+            - PGADMIN_DEFAULT_PASSWORD=root
+        ports: 
+            - "5050:80"
