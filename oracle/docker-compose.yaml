@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  oracledb:
+    image: container-registry.oracle.com/database/enterprise:latest
+    restart: unless-stopped
+    ports:
+      - 1521:1521
+      - 5500:5500
+    environment:
+      ORACLE_PWD: password#1
+      ORACLE_EDITION: enterprise
+    volumes:
+      - ./oradata:/opt/oracle/oradata
